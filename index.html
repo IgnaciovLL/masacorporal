@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mysty.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calcular tu masa corporal</h1>
+    <br><br>
+    <div class="conjun">
+        <section>
+            <div class="n1">
+                <h2>Ingrese su peso en Kilogramos:</h2>
+                <input type="number" id="pes" size="45" required placeholder="Peso">
+            </div>
+            
+            <div class="n2">
+                <h2>Ingrese su altura en metros:</h2>
+                <input type="number" id="altu" size="25" required placeholder="Altura">
+            </div>
+            <br><br>
+            <div class="boton">
+                <button id="calc">Calcular</button>
+                <input type="reset" value="limpiar">
+            </div>
+            <br><br>
+            <div class="res">
+                <div class="resulta" id="salida"></div>
+                <br>
+                <div class="pala" id="pesad"></div>
+            </div>
+            <script>
+                    var a = document.getElementById("calc");
+                    a.addEventListener("click",calculo);
+
+                    function calculo(){
+                        var peso = parseFloat(document.getElementById("pes").value);
+                        var altura = parseFloat(document.getElementById("altu").value);
+
+                        var pes_altu = (peso / Math.pow(altura,2)).toFixed(2);
+                        
+                        if (pes_altu < 18.5){
+                                    document.getElementById("salida").innerHTML = "Su indice de masa corporal es: "+pes_altu;
+                                    document.getElementById("salida").innerHTML = "Bajo peso";
+                                }
+                        
+                                else if (pes_altu >= 18.5 && pes_altu<=24.9) {
+                                    document.getElementById("salida").innerHTML = "Su indice de masa corporal es: "+pes_altu;
+                                    document.getElementById("salida").innerHTML = "Normal";
+                                }
+
+                                else if (pes_altu >= 25 && pes_altu<=29.9) {
+                                    document.getElementById("salida").innerHTML = "Su indice de masa corporal es: "+pes_altu;
+                                    document.getElementById("salida").innerHTML = "Sobrepeso";
+                                }
+
+                                else if (pes_altu >= 30) {
+                                    document.getElementById("salida").innerHTML = "Su indice de masa corporal es: "+pes_altu;
+                                    document.getElementById("pesad").innerHTML = "Obecidad";
+                                }
+                        
+                    }
+            </script>
+        </section>
+    </div>
+</body>
+</html>
